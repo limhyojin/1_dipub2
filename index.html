@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>9월 14일 좆같다!</title>
+	<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+	<style type="text/css">
+		body {margin:0; padding: 0;}
+		.wrap {width:1400px;margin:0; padding:0; display:block;}
+		.image {margin:0;padding:0;width:300px; height: 800px;float:left; background: url(./money.jpg); background-size:1300px; background-position: -450px -50px;background-repeat: no-repeat;}
+		.text {margin:0;padding:0;width:650px; margin-top:50px;font-color:#333;float:left;margin-left: 50px;}
+		header {font-family: 'Noto Sans KR', sans-serif; font-size: 45px; font-color:#333; font-weight: 900;margin-bottom: 15px;}
+		#myname {width:200px;font-family: 'Noto Sans KR', sans-serif; font-size: 25px; padding:10px; }
+		#present {font-family: 'Noto Sans KR', sans-serif; font-size: 17px; }
+		#wish {font-family: 'Noto Sans KR', sans-serif; font-size: 17px;}
+		p {font-family: 'Noto Sans KR', sans-serif; font-size:14px;}
+		#start, #finish{font-family: 'Noto Sans KR', sans-serif; font-size: 17px;
+		color:grey;}
+		#okbutton{margin-bottom:30px;}
+		#monitor, #monitor2, #monitor3{font-family:'Noto Sans KR', sans-serif; font-size:25px;font-weight: 700;line-height: 1.8;}
+
+		
+
+
+		
+	</style>
+</head>
+<body>
+	<div class="wrap">
+		<div class="image"></div>
+		<div class="text">
+		<header> <input type="text" id="myname" placeholder="이름"> 님의<br>목표 재산을 이루려면?
+		</header>
+	<br><br>
+	<input type="text" id="present" placeholder="현재 재산을 입력하세요.">
+	<br><br>
+	<input type="text" id="wish" placeholder="목표 재산을 입력하세요.">
+	<br><br>
+	<p>시작 날짜를 입력하세요</p>
+	<input type="date" id="start">
+	<br><br>
+	<p>목표 날짜를 입력하세요</p>
+	<input type="date" id="finish">
+	<br><br>
+	
+	<input type="button" value="확인" id="okbutton">
+	<div id="monitor"></div>
+	<div id="monitor2"></div>
+	<div id="monitor3"></div>
+
+
+
+	<script type="text/javascript">
+		okbutton.onclick = function(){
+			var money = wish.value - present.value
+			var startday = start.value;
+			console.log(startday);
+			var result1 = new Date(startday);
+			console.log(result1);
+			var finishday = finish.value;
+			console.log(finishday);
+			var result2 = new Date(finishday);
+			console.log(result2);
+
+			var du = result2.getTime() - result1.getTime();
+			console.log(du);
+
+			var dayTime = 1000*60*60*24
+
+			var dday = Math.ceil(du / dayTime);
+			console.log(dday);
+
+			var day = Math.round(money / dday);
+			console.log(day);
+
+			var year = Math.round(day*365);
+			console.log(year);
+		
+			monitor.innerHTML = myname.value + "님의 모아야 할 돈은 " + money + "원 이며";
+			monitor2.innerHTML = "하루에 " + day + "원씩"
+			monitor3.innerHTML = "일년에 " + year + "원씩 모아야 합니다."
+
+
+			
+			}
+
+
+
+	</script>
+</div>
+</div>
+</body>	
+</html>
